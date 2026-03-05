@@ -59,7 +59,7 @@ with col_loss:
     else:
         curve_path = f"assets/training_curves/{model_name}_curves.png"
         if os.path.exists(curve_path):
-            st.image(curve_path, use_container_width=True)
+            st.image(curve_path, width='stretch')
         else:
             st.info("No loss data or static image found.")
 
@@ -81,13 +81,13 @@ cm_path = f"assets/confusion_matrices/{model_name}_cm.png"
 col_cm1, col_cm2, col_cm3 = st.columns([1, 2, 1])
 with col_cm2:
     if os.path.exists(cm_path):
-        st.image(cm_path, use_container_width=True)
+        st.image(cm_path, width='stretch')
     else:
         st.warning(f"⚠️ Waiting for static image at: {cm_path}")
 
 st.markdown("### Grad-CAM Visualization")
 if model_name == 'SOTA-tf':
-    st.image('assets/sota-Grad-CAM.png', use_container_width=True)
+    st.image('assets/sota-Grad-CAM.png', width='stretch')
 
 # --- 3. MODEL STATISTICS ---
 st.subheader("Model Statistics")
